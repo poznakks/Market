@@ -9,25 +9,93 @@
 /* Begin PBXBuildFile section */
 		2101AC542B9786D4009C6EBF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC532B9786D4009C6EBF /* AppDelegate.swift */; };
 		2101AC562B9786D4009C6EBF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC552B9786D4009C6EBF /* SceneDelegate.swift */; };
-		2101AC582B9786D4009C6EBF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC572B9786D4009C6EBF /* ViewController.swift */; };
 		2101AC5D2B9786D6009C6EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2101AC5C2B9786D6009C6EBF /* Assets.xcassets */; };
 		2101AC602B9786D6009C6EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2101AC5E2B9786D6009C6EBF /* LaunchScreen.storyboard */; };
 		2101AC6D2B978A06009C6EBF /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2101AC6C2B978A06009C6EBF /* Localizable.xcstrings */; };
 		2101AC702B978CB7009C6EBF /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC6F2B978CB7009C6EBF /* XCAssets+Generated.swift */; };
 		2101AC732B979587009C6EBF /* SwiftGenTemplate.stencil in Resources */ = {isa = PBXBuildFile; fileRef = 2101AC722B979587009C6EBF /* SwiftGenTemplate.stencil */; };
+		2101AC762B9798E8009C6EBF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC752B9798E8009C6EBF /* Coordinator.swift */; };
+		2101AC782B979914009C6EBF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC772B979914009C6EBF /* AppCoordinator.swift */; };
+		2101AC7C2B979A1C009C6EBF /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC7B2B979A1C009C6EBF /* Injected.swift */; };
+		2101AC7E2B979A30009C6EBF /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC7D2B979A30009C6EBF /* DependencyContainer.swift */; };
+		2101AC822B979BC2009C6EBF /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC812B979BC2009C6EBF /* LoginCoordinator.swift */; };
+		2101AC842B979C89009C6EBF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC832B979C89009C6EBF /* LoginViewController.swift */; };
+		2101AC872B979CC5009C6EBF /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC862B979CC5009C6EBF /* CoordinatorFactory.swift */; };
+		2101AC892B979CF0009C6EBF /* DefaultCoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC882B979CF0009C6EBF /* DefaultCoordinatorFactory.swift */; };
+		2101AC8C2B979D2B009C6EBF /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC8B2B979D2B009C6EBF /* ViewControllerFactory.swift */; };
+		2101AC8E2B979D4C009C6EBF /* DefaultViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC8D2B979D4C009C6EBF /* DefaultViewControllerFactory.swift */; };
+		2101AC912B979F0A009C6EBF /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC902B979F0A009C6EBF /* Store.swift */; };
+		2101AC932B979F9E009C6EBF /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC922B979F9E009C6EBF /* AppState.swift */; };
+		2101AC952B979FBF009C6EBF /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC942B979FBF009C6EBF /* AppAction.swift */; };
+		2101AC972B97A026009C6EBF /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC962B97A026009C6EBF /* AppReducer.swift */; };
+		2101AC9C2B97A2CF009C6EBF /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC9B2B97A2CF009C6EBF /* UserState.swift */; };
+		2101AC9F2B97A2F6009C6EBF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101AC9E2B97A2F6009C6EBF /* User.swift */; };
+		2101ACA12B97A4B2009C6EBF /* UserReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACA02B97A4B2009C6EBF /* UserReducer.swift */; };
+		2101ACA32B97A4D5009C6EBF /* UserAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACA22B97A4D5009C6EBF /* UserAction.swift */; };
+		2101ACA52B97A54C009C6EBF /* UserMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACA42B97A54C009C6EBF /* UserMiddleware.swift */; };
+		2101ACA92B97A5AA009C6EBF /* UserErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACA82B97A5AA009C6EBF /* UserErrors.swift */; };
+		2101ACAD2B97A755009C6EBF /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACAC2B97A755009C6EBF /* UserService.swift */; };
+		2101ACAF2B97A78E009C6EBF /* DefaultUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACAE2B97A78E009C6EBF /* DefaultUserService.swift */; };
+		2101ACB12B97A843009C6EBF /* CredentialsValidating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACB02B97A843009C6EBF /* CredentialsValidating.swift */; };
+		2101ACB42B97A977009C6EBF /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACB32B97A977009C6EBF /* MainTabBarCoordinator.swift */; };
+		2101ACB62B97A9D9009C6EBF /* TabBarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACB52B97A9D9009C6EBF /* TabBarPage.swift */; };
+		2101ACB92B97AA22009C6EBF /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACB82B97AA22009C6EBF /* HomeCoordinator.swift */; };
+		2101ACBB2B97AA33009C6EBF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACBA2B97AA33009C6EBF /* HomeViewController.swift */; };
+		2101ACBE2B97AACE009C6EBF /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACBD2B97AACE009C6EBF /* SearchCoordinator.swift */; };
+		2101ACC02B97AAEC009C6EBF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACBF2B97AAEC009C6EBF /* SearchViewController.swift */; };
+		2101ACC32B97AB52009C6EBF /* WishlistCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACC22B97AB52009C6EBF /* WishlistCoordinator.swift */; };
+		2101ACC52B97AB93009C6EBF /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACC42B97AB93009C6EBF /* WishlistViewController.swift */; };
+		2101ACC82B97ABE9009C6EBF /* CartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACC72B97ABE9009C6EBF /* CartController.swift */; };
+		2101ACCA2B97AC09009C6EBF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACC92B97AC08009C6EBF /* CartViewController.swift */; };
+		2101ACCD2B97AC33009C6EBF /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACCC2B97AC33009C6EBF /* ProfileCoordinator.swift */; };
+		2101ACCF2B97AC63009C6EBF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACCE2B97AC63009C6EBF /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2101AC502B9786D4009C6EBF /* Market.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Market.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2101AC532B9786D4009C6EBF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2101AC552B9786D4009C6EBF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2101AC572B9786D4009C6EBF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2101AC5C2B9786D6009C6EBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2101AC5F2B9786D6009C6EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2101AC612B9786D6009C6EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2101AC6C2B978A06009C6EBF /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2101AC6F2B978CB7009C6EBF /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		2101AC722B979587009C6EBF /* SwiftGenTemplate.stencil */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SwiftGenTemplate.stencil; sourceTree = "<group>"; };
+		2101AC752B9798E8009C6EBF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2101AC772B979914009C6EBF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		2101AC7B2B979A1C009C6EBF /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		2101AC7D2B979A30009C6EBF /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		2101AC812B979BC2009C6EBF /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		2101AC832B979C89009C6EBF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2101AC862B979CC5009C6EBF /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		2101AC882B979CF0009C6EBF /* DefaultCoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultCoordinatorFactory.swift; sourceTree = "<group>"; };
+		2101AC8B2B979D2B009C6EBF /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		2101AC8D2B979D4C009C6EBF /* DefaultViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultViewControllerFactory.swift; sourceTree = "<group>"; };
+		2101AC902B979F0A009C6EBF /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2101AC922B979F9E009C6EBF /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		2101AC942B979FBF009C6EBF /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		2101AC962B97A026009C6EBF /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		2101AC9B2B97A2CF009C6EBF /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		2101AC9E2B97A2F6009C6EBF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		2101ACA02B97A4B2009C6EBF /* UserReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReducer.swift; sourceTree = "<group>"; };
+		2101ACA22B97A4D5009C6EBF /* UserAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAction.swift; sourceTree = "<group>"; };
+		2101ACA42B97A54C009C6EBF /* UserMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMiddleware.swift; sourceTree = "<group>"; };
+		2101ACA82B97A5AA009C6EBF /* UserErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserErrors.swift; sourceTree = "<group>"; };
+		2101ACAC2B97A755009C6EBF /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2101ACAE2B97A78E009C6EBF /* DefaultUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserService.swift; sourceTree = "<group>"; };
+		2101ACB02B97A843009C6EBF /* CredentialsValidating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsValidating.swift; sourceTree = "<group>"; };
+		2101ACB32B97A977009C6EBF /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
+		2101ACB52B97A9D9009C6EBF /* TabBarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPage.swift; sourceTree = "<group>"; };
+		2101ACB82B97AA22009C6EBF /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		2101ACBA2B97AA33009C6EBF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2101ACBD2B97AACE009C6EBF /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		2101ACBF2B97AAEC009C6EBF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		2101ACC22B97AB52009C6EBF /* WishlistCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistCoordinator.swift; sourceTree = "<group>"; };
+		2101ACC42B97AB93009C6EBF /* WishlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
+		2101ACC72B97ABE9009C6EBF /* CartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartController.swift; sourceTree = "<group>"; };
+		2101ACC92B97AC08009C6EBF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		2101ACCC2B97AC33009C6EBF /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		2101ACCE2B97AC63009C6EBF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +128,11 @@
 		2101AC522B9786D4009C6EBF /* Market */ = {
 			isa = PBXGroup;
 			children = (
-				2101AC572B9786D4009C6EBF /* ViewController.swift */,
 				2101AC6B2B9789F2009C6EBF /* App */,
+				2101AC7F2B979BAA009C6EBF /* Scenes */,
+				2101AC9D2B97A2E6009C6EBF /* Models */,
+				2101AC792B9799BF009C6EBF /* Coordinator */,
+				2101AC7A2B9799F8009C6EBF /* DependencyInjection */,
 				2101AC692B9789D0009C6EBF /* Resources */,
 				2101AC6E2B978A48009C6EBF /* Generated */,
 				2101AC6A2B9789E1009C6EBF /* SupportingFiles */,
@@ -92,6 +163,8 @@
 			children = (
 				2101AC532B9786D4009C6EBF /* AppDelegate.swift */,
 				2101AC552B9786D4009C6EBF /* SceneDelegate.swift */,
+				2101AC772B979914009C6EBF /* AppCoordinator.swift */,
+				2101AC982B97A062009C6EBF /* Redux */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -111,6 +184,163 @@
 				2101AC722B979587009C6EBF /* SwiftGenTemplate.stencil */,
 			);
 			path = Templates;
+			sourceTree = "<group>";
+		};
+		2101AC792B9799BF009C6EBF /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC752B9798E8009C6EBF /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2101AC7A2B9799F8009C6EBF /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC7B2B979A1C009C6EBF /* Injected.swift */,
+				2101AC7D2B979A30009C6EBF /* DependencyContainer.swift */,
+				2101AC852B979CA7009C6EBF /* CoordinatorFactory */,
+				2101AC8A2B979D1B009C6EBF /* ViewControllerFactory */,
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		2101AC7F2B979BAA009C6EBF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC802B979BB6009C6EBF /* Login */,
+				2101ACB22B97A958009C6EBF /* Main */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		2101AC802B979BB6009C6EBF /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC812B979BC2009C6EBF /* LoginCoordinator.swift */,
+				2101AC832B979C89009C6EBF /* LoginViewController.swift */,
+				2101AC9A2B97A2BF009C6EBF /* Redux */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2101AC852B979CA7009C6EBF /* CoordinatorFactory */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC862B979CC5009C6EBF /* CoordinatorFactory.swift */,
+				2101AC882B979CF0009C6EBF /* DefaultCoordinatorFactory.swift */,
+			);
+			path = CoordinatorFactory;
+			sourceTree = "<group>";
+		};
+		2101AC8A2B979D1B009C6EBF /* ViewControllerFactory */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC8B2B979D2B009C6EBF /* ViewControllerFactory.swift */,
+				2101AC8D2B979D4C009C6EBF /* DefaultViewControllerFactory.swift */,
+			);
+			path = ViewControllerFactory;
+			sourceTree = "<group>";
+		};
+		2101AC982B97A062009C6EBF /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC922B979F9E009C6EBF /* AppState.swift */,
+				2101AC942B979FBF009C6EBF /* AppAction.swift */,
+				2101AC962B97A026009C6EBF /* AppReducer.swift */,
+				2101AC902B979F0A009C6EBF /* Store.swift */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		2101AC9A2B97A2BF009C6EBF /* Redux */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC9B2B97A2CF009C6EBF /* UserState.swift */,
+				2101ACA22B97A4D5009C6EBF /* UserAction.swift */,
+				2101ACA02B97A4B2009C6EBF /* UserReducer.swift */,
+				2101ACA42B97A54C009C6EBF /* UserMiddleware.swift */,
+				2101ACAB2B97A718009C6EBF /* UserService */,
+			);
+			path = Redux;
+			sourceTree = "<group>";
+		};
+		2101AC9D2B97A2E6009C6EBF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2101AC9E2B97A2F6009C6EBF /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2101ACAB2B97A718009C6EBF /* UserService */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACA82B97A5AA009C6EBF /* UserErrors.swift */,
+				2101ACAC2B97A755009C6EBF /* UserService.swift */,
+				2101ACAE2B97A78E009C6EBF /* DefaultUserService.swift */,
+				2101ACB02B97A843009C6EBF /* CredentialsValidating.swift */,
+			);
+			path = UserService;
+			sourceTree = "<group>";
+		};
+		2101ACB22B97A958009C6EBF /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACB32B97A977009C6EBF /* MainTabBarCoordinator.swift */,
+				2101ACB52B97A9D9009C6EBF /* TabBarPage.swift */,
+				2101ACB72B97AA16009C6EBF /* Home */,
+				2101ACBC2B97AAB4009C6EBF /* Search */,
+				2101ACC12B97AB42009C6EBF /* Wishlist */,
+				2101ACC62B97ABD7009C6EBF /* Cart */,
+				2101ACCB2B97AC27009C6EBF /* Profile */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2101ACB72B97AA16009C6EBF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACB82B97AA22009C6EBF /* HomeCoordinator.swift */,
+				2101ACBA2B97AA33009C6EBF /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2101ACBC2B97AAB4009C6EBF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACBD2B97AACE009C6EBF /* SearchCoordinator.swift */,
+				2101ACBF2B97AAEC009C6EBF /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		2101ACC12B97AB42009C6EBF /* Wishlist */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACC22B97AB52009C6EBF /* WishlistCoordinator.swift */,
+				2101ACC42B97AB93009C6EBF /* WishlistViewController.swift */,
+			);
+			path = Wishlist;
+			sourceTree = "<group>";
+		};
+		2101ACC62B97ABD7009C6EBF /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACC72B97ABE9009C6EBF /* CartController.swift */,
+				2101ACC92B97AC08009C6EBF /* CartViewController.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		2101ACCB2B97AC27009C6EBF /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2101ACCC2B97AC33009C6EBF /* ProfileCoordinator.swift */,
+				2101ACCE2B97AC63009C6EBF /* ProfileViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,10 +460,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2101AC582B9786D4009C6EBF /* ViewController.swift in Sources */,
+				2101ACC32B97AB52009C6EBF /* WishlistCoordinator.swift in Sources */,
+				2101AC9C2B97A2CF009C6EBF /* UserState.swift in Sources */,
+				2101ACC82B97ABE9009C6EBF /* CartController.swift in Sources */,
+				2101ACAD2B97A755009C6EBF /* UserService.swift in Sources */,
+				2101AC842B979C89009C6EBF /* LoginViewController.swift in Sources */,
+				2101ACB42B97A977009C6EBF /* MainTabBarCoordinator.swift in Sources */,
+				2101ACB92B97AA22009C6EBF /* HomeCoordinator.swift in Sources */,
+				2101ACBB2B97AA33009C6EBF /* HomeViewController.swift in Sources */,
+				2101ACB12B97A843009C6EBF /* CredentialsValidating.swift in Sources */,
+				2101AC8E2B979D4C009C6EBF /* DefaultViewControllerFactory.swift in Sources */,
+				2101ACBE2B97AACE009C6EBF /* SearchCoordinator.swift in Sources */,
+				2101AC972B97A026009C6EBF /* AppReducer.swift in Sources */,
+				2101ACC02B97AAEC009C6EBF /* SearchViewController.swift in Sources */,
+				2101AC7E2B979A30009C6EBF /* DependencyContainer.swift in Sources */,
+				2101AC782B979914009C6EBF /* AppCoordinator.swift in Sources */,
 				2101AC542B9786D4009C6EBF /* AppDelegate.swift in Sources */,
+				2101ACCA2B97AC09009C6EBF /* CartViewController.swift in Sources */,
+				2101ACA92B97A5AA009C6EBF /* UserErrors.swift in Sources */,
+				2101AC762B9798E8009C6EBF /* Coordinator.swift in Sources */,
+				2101ACB62B97A9D9009C6EBF /* TabBarPage.swift in Sources */,
+				2101AC932B979F9E009C6EBF /* AppState.swift in Sources */,
+				2101ACA12B97A4B2009C6EBF /* UserReducer.swift in Sources */,
+				2101ACCD2B97AC33009C6EBF /* ProfileCoordinator.swift in Sources */,
 				2101AC562B9786D4009C6EBF /* SceneDelegate.swift in Sources */,
+				2101ACC52B97AB93009C6EBF /* WishlistViewController.swift in Sources */,
+				2101AC912B979F0A009C6EBF /* Store.swift in Sources */,
+				2101AC952B979FBF009C6EBF /* AppAction.swift in Sources */,
 				2101AC702B978CB7009C6EBF /* XCAssets+Generated.swift in Sources */,
+				2101ACCF2B97AC63009C6EBF /* ProfileViewController.swift in Sources */,
+				2101ACA52B97A54C009C6EBF /* UserMiddleware.swift in Sources */,
+				2101AC892B979CF0009C6EBF /* DefaultCoordinatorFactory.swift in Sources */,
+				2101AC822B979BC2009C6EBF /* LoginCoordinator.swift in Sources */,
+				2101ACAF2B97A78E009C6EBF /* DefaultUserService.swift in Sources */,
+				2101AC8C2B979D2B009C6EBF /* ViewControllerFactory.swift in Sources */,
+				2101AC7C2B979A1C009C6EBF /* Injected.swift in Sources */,
+				2101AC872B979CC5009C6EBF /* CoordinatorFactory.swift in Sources */,
+				2101ACA32B97A4D5009C6EBF /* UserAction.swift in Sources */,
+				2101AC9F2B97A2F6009C6EBF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +658,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.Market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -423,6 +688,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.vlad.Market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
