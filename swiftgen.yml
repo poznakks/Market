@@ -1,0 +1,13 @@
+ input_dir: Market/Resources
+
+ output_dir: Market/Generated/
+
+ xcassets: 
+   inputs: 
+     - Assets.xcassets
+
+   outputs: 
+     - templatePath: Market/Generated/Templates/SwiftGenTemplate.stencil
+       params:
+         forceProvidesNamespaces: true 
+       output: XCAssets+Generated.swift
