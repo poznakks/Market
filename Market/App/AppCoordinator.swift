@@ -28,7 +28,7 @@ final class AppCoordinator: AppCoordinating {
     }
 
     func start(animated: Bool) {
-        let isLoggedIn = UserDefaults.standard.bool(forKey: isLoggedInKey)
+        let isLoggedIn = false
         if isLoggedIn {
             startMainFlow(animated: animated)
         } else {

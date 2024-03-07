@@ -49,6 +49,13 @@
 		2101ACCA2B97AC09009C6EBF /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACC92B97AC08009C6EBF /* CartViewController.swift */; };
 		2101ACCD2B97AC33009C6EBF /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACCC2B97AC33009C6EBF /* ProfileCoordinator.swift */; };
 		2101ACCF2B97AC63009C6EBF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2101ACCE2B97AC63009C6EBF /* ProfileViewController.swift */; };
+		219592852B98B99E003BB89C /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 219592842B98B99E003BB89C /* Colors.xcassets */; };
+		219592872B98BB17003BB89C /* CredentialsTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592862B98BB17003BB89C /* CredentialsTextField.swift */; };
+		219592892B98E19A003BB89C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592882B98E19A003BB89C /* SignInButton.swift */; };
+		2195928B2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928A2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift */; };
+		2195928D2B98EBB8003BB89C /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928C2B98EBB8003BB89C /* TitleLabel.swift */; };
+		2195928F2B98F62B003BB89C /* EmailAndPasswordStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */; };
+		219592912B990DA2003BB89C /* UIImage+systemImageWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592902B990DA2003BB89C /* UIImage+systemImageWithColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +103,13 @@
 		2101ACC92B97AC08009C6EBF /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		2101ACCC2B97AC33009C6EBF /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
 		2101ACCE2B97AC63009C6EBF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		219592842B98B99E003BB89C /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		219592862B98BB17003BB89C /* CredentialsTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsTextField.swift; sourceTree = "<group>"; };
+		219592882B98E19A003BB89C /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
+		2195928A2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+systemFontWithDesign.swift"; sourceTree = "<group>"; };
+		2195928C2B98EBB8003BB89C /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndPasswordStackView.swift; sourceTree = "<group>"; };
+		219592902B990DA2003BB89C /* UIImage+systemImageWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+systemImageWithColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +147,7 @@
 				2101AC9D2B97A2E6009C6EBF /* Models */,
 				2101AC792B9799BF009C6EBF /* Coordinator */,
 				2101AC7A2B9799F8009C6EBF /* DependencyInjection */,
+				219592812B98B2FB003BB89C /* Extensions */,
 				2101AC692B9789D0009C6EBF /* Resources */,
 				2101AC6E2B978A48009C6EBF /* Generated */,
 				2101AC6A2B9789E1009C6EBF /* SupportingFiles */,
@@ -144,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				2101AC5C2B9786D6009C6EBF /* Assets.xcassets */,
+				219592842B98B99E003BB89C /* Colors.xcassets */,
 				2101AC6C2B978A06009C6EBF /* Localizable.xcstrings */,
 			);
 			path = Resources;
@@ -208,8 +224,8 @@
 		2101AC7F2B979BAA009C6EBF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				2101AC802B979BB6009C6EBF /* Login */,
 				2101ACB22B97A958009C6EBF /* Main */,
+				2101AC802B979BB6009C6EBF /* Login */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -219,6 +235,7 @@
 			children = (
 				2101AC812B979BC2009C6EBF /* LoginCoordinator.swift */,
 				2101AC832B979C89009C6EBF /* LoginViewController.swift */,
+				219592922B9A45FB003BB89C /* CustomElements */,
 				2101AC9A2B97A2BF009C6EBF /* Redux */,
 			);
 			path = Login;
@@ -343,6 +360,26 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		219592812B98B2FB003BB89C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2195928A2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift */,
+				219592902B990DA2003BB89C /* UIImage+systemImageWithColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		219592922B9A45FB003BB89C /* CustomElements */ = {
+			isa = PBXGroup;
+			children = (
+				2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */,
+				2195928C2B98EBB8003BB89C /* TitleLabel.swift */,
+				219592882B98E19A003BB89C /* SignInButton.swift */,
+				219592862B98BB17003BB89C /* CredentialsTextField.swift */,
+			);
+			path = CustomElements;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -387,6 +424,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 2101AC472B9786D4009C6EBF;
 			productRefGroup = 2101AC512B9786D4009C6EBF /* Products */;
@@ -403,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				219592852B98B99E003BB89C /* Colors.xcassets in Resources */,
 				2101AC602B9786D6009C6EBF /* LaunchScreen.storyboard in Resources */,
 				2101AC5D2B9786D6009C6EBF /* Assets.xcassets in Resources */,
 				2101AC6D2B978A06009C6EBF /* Localizable.xcstrings in Resources */,
@@ -470,6 +509,7 @@
 				2101ACBB2B97AA33009C6EBF /* HomeViewController.swift in Sources */,
 				2101ACB12B97A843009C6EBF /* CredentialsValidating.swift in Sources */,
 				2101AC8E2B979D4C009C6EBF /* DefaultViewControllerFactory.swift in Sources */,
+				219592892B98E19A003BB89C /* SignInButton.swift in Sources */,
 				2101ACBE2B97AACE009C6EBF /* SearchCoordinator.swift in Sources */,
 				2101AC972B97A026009C6EBF /* AppReducer.swift in Sources */,
 				2101ACC02B97AAEC009C6EBF /* SearchViewController.swift in Sources */,
@@ -488,15 +528,20 @@
 				2101AC912B979F0A009C6EBF /* Store.swift in Sources */,
 				2101AC952B979FBF009C6EBF /* AppAction.swift in Sources */,
 				2101AC702B978CB7009C6EBF /* XCAssets+Generated.swift in Sources */,
+				219592872B98BB17003BB89C /* CredentialsTextField.swift in Sources */,
 				2101ACCF2B97AC63009C6EBF /* ProfileViewController.swift in Sources */,
 				2101ACA52B97A54C009C6EBF /* UserMiddleware.swift in Sources */,
 				2101AC892B979CF0009C6EBF /* DefaultCoordinatorFactory.swift in Sources */,
 				2101AC822B979BC2009C6EBF /* LoginCoordinator.swift in Sources */,
 				2101ACAF2B97A78E009C6EBF /* DefaultUserService.swift in Sources */,
+				2195928D2B98EBB8003BB89C /* TitleLabel.swift in Sources */,
 				2101AC8C2B979D2B009C6EBF /* ViewControllerFactory.swift in Sources */,
 				2101AC7C2B979A1C009C6EBF /* Injected.swift in Sources */,
 				2101AC872B979CC5009C6EBF /* CoordinatorFactory.swift in Sources */,
 				2101ACA32B97A4D5009C6EBF /* UserAction.swift in Sources */,
+				219592912B990DA2003BB89C /* UIImage+systemImageWithColor.swift in Sources */,
+				2195928F2B98F62B003BB89C /* EmailAndPasswordStackView.swift in Sources */,
+				2195928B2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift in Sources */,
 				2101AC9F2B97A2F6009C6EBF /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

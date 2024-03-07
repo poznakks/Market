@@ -15,50 +15,27 @@ final class LoginViewController: UIViewController {
     @Injected private var store: AppStore
     private var cancellables: Set<AnyCancellable> = []
 
-    private lazy var emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = Constants.Strings.emailPlaceholder
-        textField.borderStyle = .roundedRect
-        textField.layer.cornerRadius = Constants.TextField.textFieldCornerRadius
-        textField.layer.masksToBounds = true
-        textField.keyboardType = .emailAddress
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.textColor = .darkText
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = Constants.TextField.textFieldBorderWidth
-        textField.backgroundColor = UIColor(white: 0.965, alpha: 1.0)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(textField)
-        return textField
+    private lazy var titleLabel: TitleLabel = {
+        let fullText = Constants.Strings.titleLabelText.components(separatedBy: " ")
+        let label = TitleLabel(firstWord: fullText[0], secondWord: fullText[1])
+        view.addSubview(label)
+        return label
     }()
 
-    private lazy var passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = Constants.Strings.passwordPlaceholder
-        textField.borderStyle = .roundedRect
-        textField.layer.cornerRadius = Constants.TextField.textFieldCornerRadius
-        textField.layer.masksToBounds = true
-        textField.autocapitalizationType = .none
-        textField.autocorrectionType = .no
-        textField.isSecureTextEntry = true
-        textField.textColor = .darkText
-        textField.layer.borderColor = UIColor.black.cgColor
-        textField.layer.borderWidth = Constants.TextField.textFieldBorderWidth
-        textField.backgroundColor = UIColor(white: 0.965, alpha: 1.0)
-        textField.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(textField)
-        return textField
+    private lazy var emailAndPasswordStackView: EmailAndPasswordStackView = {
+        let stackView = EmailAndPasswordStackView(
+            cornerRadius: Constants.Interface.textFieldAndSignInButtonCornerRadius,
+            height: Constants.Constraints.textFieldAndSignInButtonHeight
+        )
+        view.addSubview(stackView)
+        return stackView
     }()
 
-    private lazy var loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle(Constants.Strings.loginButtonLabel, for: .normal)
-        button.backgroundColor = .systemBlue
-        button.setTitleColor(.white, for: .normal)
-        button.layer.cornerRadius = Constants.TextField.textFieldCornerRadius
+    private lazy var signInButton: SignInButton = {
+        let button = SignInButton(
+            cornerRadius: Constants.Interface.textFieldAndSignInButtonCornerRadius
+        )
         button.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
-        button.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(button)
         return button
     }()
@@ -86,7 +63,6 @@ final class LoginViewController: UIViewController {
 
     private func updateState(with state: UserState) {
         if let user = state.user {
-            stateLabel.text = "\(user)"
             coordinator?.logIn()
             return
         }
@@ -116,91 +92,80 @@ final class LoginViewController: UIViewController {
 
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            emailTextField.topAnchor.constraint(
-                equalTo: view.topAnchor,
-                constant: Constants.Constraints.emailTextFieldToTop
+            titleLabel.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: Constants.Constraints.titleToTopOffset
             ),
-            emailTextField.widthAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonWidth
+            titleLabel.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                constant: Constants.Constraints.leadingTrailingInset
             ),
-            emailTextField.heightAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonHeight
+            titleLabel.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -Constants.Constraints.leadingTrailingInset
             )
         ])
 
         NSLayoutConstraint.activate([
-            passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passwordTextField.topAnchor.constraint(
-                equalTo: emailTextField.bottomAnchor,
-                constant: Constants.Constraints.passwordTextFieldToEmailTextField
+            emailAndPasswordStackView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: Constants.Constraints.textFieldsToTitleOffset
             ),
-            passwordTextField.widthAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonWidth
+            emailAndPasswordStackView.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                constant: Constants.Constraints.leadingTrailingInset
             ),
-            passwordTextField.heightAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonHeight
+            emailAndPasswordStackView.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -Constants.Constraints.leadingTrailingInset
             )
         ])
 
         NSLayoutConstraint.activate([
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.topAnchor.constraint(
-                equalTo: passwordTextField.bottomAnchor,
-                constant: Constants.Constraints.loginButtonToPasswordTextField
+            signInButton.topAnchor.constraint(
+                equalTo: emailAndPasswordStackView.bottomAnchor,
+                constant: Constants.Constraints.signInButtonToTextFieldsOffset
             ),
-            loginButton.widthAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonWidth
+            signInButton.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                constant: Constants.Constraints.leadingTrailingInset
             ),
-            loginButton.heightAnchor.constraint(
-                equalToConstant: Constants.Constraints.textFieldsAndLoginButtonHeight
-            )
-        ])
-
-        NSLayoutConstraint.activate([
-            stateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stateLabel.topAnchor.constraint(
-                equalTo: loginButton.bottomAnchor,
-                constant: Constants.Constraints.loginButtonToPasswordTextField
+            signInButton.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -Constants.Constraints.leadingTrailingInset
+            ),
+            signInButton.heightAnchor.constraint(
+                equalToConstant: Constants.Constraints.textFieldAndSignInButtonHeight
             )
         ])
     }
 
     @objc
     private func didTapLoginButton() {
-        let email = emailTextField.text ?? .empty
-        let password = passwordTextField.text ?? .empty
+        let email = emailAndPasswordStackView.emailText
+        let password = emailAndPasswordStackView.passwordText
         store.dispatch(.user(.auth(.login(email: email, password: password))))
     }
 }
 
 private enum Constants {
-    enum TextField {
-        static let textFieldCornerRadius: CGFloat = 12
-        static let textFieldBorderWidth: CGFloat = 1
+    enum Interface {
+        static let textFieldAndSignInButtonCornerRadius: CGFloat = 20
     }
 
     enum Constraints {
-        static let emailTextFieldToTop: CGFloat = 300
-        static let passwordTextFieldToEmailTextField: CGFloat = 20
-        static let loginButtonToPasswordTextField: CGFloat = 30
-        static let textFieldsAndLoginButtonWidth: CGFloat = 350
-        static let textFieldsAndLoginButtonHeight: CGFloat = 50
+        static let leadingTrailingInset: CGFloat = 20
+        static let titleToTopOffset: CGFloat = 30
+        static let textFieldsToTitleOffset: CGFloat = 100
+        static let signInButtonToTextFieldsOffset: CGFloat = 30
+        static let textFieldAndSignInButtonHeight: CGFloat = 50
     }
 
     enum Strings {
-        static let emailPlaceholder: String = "test@example.com"
-        static let passwordPlaceholder: String = "password"
-        static let loginButtonLabel = String(localized: LocalizableStrings.loginButtonLabel)
+        static let titleLabelText = String(localized: LocalizableStrings.titleLabelText)
     }
 
     private enum LocalizableStrings {
-        static let loginButtonLabel: LocalizedStringResource = "Login"
-    }
-}
-
-extension String {
-    static var empty: Self {
-        ""
+        static let titleLabelText: LocalizedStringResource = "Welcome back!"
     }
 }

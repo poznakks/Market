@@ -3,8 +3,9 @@
  output_dir: Market/Generated/
 
  xcassets: 
-   inputs: 
+   inputs:
      - Assets.xcassets
+     - Colors.xcassets
 
    outputs: 
      - templatePath: Market/Generated/Templates/SwiftGenTemplate.stencil
