@@ -1,18 +1,15 @@
 //
-//  SignInButton.swift
+//  ForgotPasswordButton.swift
 //  Market
 //
-//  Created by Vlad Boguzh on 06.03.2024.
+//  Created by Vlad Boguzh on 08.03.2024.
 //
 
 import UIKit
 
-final class SignInButton: UIButton {
+final class ForgotPasswordButton: UIButton {
 
-    private let cornerRadius: CGFloat
-
-    init(cornerRadius: CGFloat) {
-        self.cornerRadius = cornerRadius
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         setup()
     }
@@ -23,18 +20,17 @@ final class SignInButton: UIButton {
     }
 
     private func setup() {
-        setTitle(Constants.Strings.buttonLabel, for: .normal)
-        setTitleColor(.white, for: .normal)
+        setTitle("Forgot password?", for: .normal)
+        setTitleColor(Asset.Colors.customBlue.color, for: .normal)
         titleLabel?.font = Constants.Interface.font
-        backgroundColor = Asset.Colors.customRed.color
-        layer.cornerRadius = cornerRadius
+        backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
     }
 }
 
 private enum Constants {
     enum Interface {
-        static let font = UIFont.systemFont(ofSize: 18, weight: .semibold, design: .rounded)
+        static let font = UIFont.systemFont(ofSize: 15, weight: .semibold, design: .rounded)
     }
 
     enum Strings {
@@ -42,6 +38,6 @@ private enum Constants {
     }
 
     private enum LocalizableStrings {
-        static let buttonLabel: LocalizedStringResource = "Sign In"
+        static let buttonLabel: LocalizedStringResource = "Forgot password?"
     }
 }

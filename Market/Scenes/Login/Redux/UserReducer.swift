@@ -29,16 +29,16 @@ func userAuthReducer(
     userStateUpdater: (User?) -> Void
 ) {
     switch action {
-    case .login:
+    case .login(_, _, rememberUser: let rememberUser):
         state.isLoggingIn = true
         state.loginError = nil
+        UserDefaults.standard.rememberUser = rememberUser
 
     case .loginSuccess(user: let user):
         state.isLoggingIn = false
         state.loginError = nil
         userStateUpdater(user)
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-        UserDefaults.standard.set(user.email, forKey: "currentUser")
+        UserDefaults.standard.rememberedUserEmail = user.email
 
     case .loginError(error: let error):
         state.isLoggingIn = false
@@ -48,8 +48,7 @@ func userAuthReducer(
         state.isLoggingIn = false
         state.loginError = nil
         userStateUpdater(nil)
-        UserDefaults.standard.set(false, forKey: "isLoggedIn")
-        UserDefaults.standard.set(nil, forKey: "currentUser")
+        UserDefaults.standard.rememberedUserEmail = nil
     }
 }
 

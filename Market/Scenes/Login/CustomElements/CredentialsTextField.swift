@@ -14,9 +14,11 @@ enum TextFieldType {
 
 final class CredentialsTextField: UITextField {
 
+    // MARK: Properties
     private let type: TextFieldType
     private let cornerRadius: CGFloat
 
+    // MARK: Lifecycle
     init(type: TextFieldType, cornerRadius: CGFloat) {
         self.type = type
         self.cornerRadius = cornerRadius
@@ -31,6 +33,7 @@ final class CredentialsTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Setup text field
     private func setup() {
         borderStyle = .roundedRect
         layer.cornerRadius = cornerRadius
@@ -65,6 +68,7 @@ final class CredentialsTextField: UITextField {
         isSecureTextEntry = true
     }
 
+    // MARK: Left and right view
     private func setupLeftRightView(position: ViewPosition, symbol: UIImage) {
         let view = UIView(
             frame: CGRect(
@@ -109,7 +113,8 @@ final class CredentialsTextField: UITextField {
             rightViewMode = .always
         }
     }
-
+    
+    // MARK: Actions
     @objc
     private func didTapTogglePasswordVisibility() {
         isSecureTextEntry.toggle()
@@ -152,6 +157,7 @@ final class CredentialsTextField: UITextField {
     }
 }
 
+// MARK: - UITextFieldDelegate
 extension CredentialsTextField: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         updateAppearance()
@@ -162,6 +168,7 @@ extension CredentialsTextField: UITextFieldDelegate {
     }
 }
 
+// MARK: - Constants
 private enum Constants {
 
     // swiftlint:disable force_unwrapping

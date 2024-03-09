@@ -21,6 +21,12 @@
         }
       }
     },
+    "Forgot password?" : {
+
+    },
+    "Remember Me" : {
+
+    },
     "Sign In" : {
       "localizations" : {
         "ru" : {

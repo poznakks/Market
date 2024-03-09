@@ -54,8 +54,9 @@
 		219592892B98E19A003BB89C /* SignInButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592882B98E19A003BB89C /* SignInButton.swift */; };
 		2195928B2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928A2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift */; };
 		2195928D2B98EBB8003BB89C /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928C2B98EBB8003BB89C /* TitleLabel.swift */; };
-		2195928F2B98F62B003BB89C /* EmailAndPasswordStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */; };
 		219592912B990DA2003BB89C /* UIImage+systemImageWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592902B990DA2003BB89C /* UIImage+systemImageWithColor.swift */; };
+		219592942B9A56F7003BB89C /* CheckboxWithTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219592932B9A56F7003BB89C /* CheckboxWithTitle.swift */; };
+		21DFCF452B9B54490026AE95 /* ForgotPasswordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21DFCF442B9B54490026AE95 /* ForgotPasswordButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,8 +109,9 @@
 		219592882B98E19A003BB89C /* SignInButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInButton.swift; sourceTree = "<group>"; };
 		2195928A2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+systemFontWithDesign.swift"; sourceTree = "<group>"; };
 		2195928C2B98EBB8003BB89C /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailAndPasswordStackView.swift; sourceTree = "<group>"; };
 		219592902B990DA2003BB89C /* UIImage+systemImageWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+systemImageWithColor.swift"; sourceTree = "<group>"; };
+		219592932B9A56F7003BB89C /* CheckboxWithTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxWithTitle.swift; sourceTree = "<group>"; };
+		21DFCF442B9B54490026AE95 /* ForgotPasswordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -372,10 +374,11 @@
 		219592922B9A45FB003BB89C /* CustomElements */ = {
 			isa = PBXGroup;
 			children = (
-				2195928E2B98F62B003BB89C /* EmailAndPasswordStackView.swift */,
 				2195928C2B98EBB8003BB89C /* TitleLabel.swift */,
 				219592882B98E19A003BB89C /* SignInButton.swift */,
 				219592862B98BB17003BB89C /* CredentialsTextField.swift */,
+				219592932B9A56F7003BB89C /* CheckboxWithTitle.swift */,
+				21DFCF442B9B54490026AE95 /* ForgotPasswordButton.swift */,
 			);
 			path = CustomElements;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				2101AC782B979914009C6EBF /* AppCoordinator.swift in Sources */,
 				2101AC542B9786D4009C6EBF /* AppDelegate.swift in Sources */,
 				2101ACCA2B97AC09009C6EBF /* CartViewController.swift in Sources */,
+				219592942B9A56F7003BB89C /* CheckboxWithTitle.swift in Sources */,
 				2101ACA92B97A5AA009C6EBF /* UserErrors.swift in Sources */,
 				2101AC762B9798E8009C6EBF /* Coordinator.swift in Sources */,
 				2101ACB62B97A9D9009C6EBF /* TabBarPage.swift in Sources */,
@@ -533,6 +537,7 @@
 				2101ACA52B97A54C009C6EBF /* UserMiddleware.swift in Sources */,
 				2101AC892B979CF0009C6EBF /* DefaultCoordinatorFactory.swift in Sources */,
 				2101AC822B979BC2009C6EBF /* LoginCoordinator.swift in Sources */,
+				21DFCF452B9B54490026AE95 /* ForgotPasswordButton.swift in Sources */,
 				2101ACAF2B97A78E009C6EBF /* DefaultUserService.swift in Sources */,
 				2195928D2B98EBB8003BB89C /* TitleLabel.swift in Sources */,
 				2101AC8C2B979D2B009C6EBF /* ViewControllerFactory.swift in Sources */,
@@ -540,7 +545,6 @@
 				2101AC872B979CC5009C6EBF /* CoordinatorFactory.swift in Sources */,
 				2101ACA32B97A4D5009C6EBF /* UserAction.swift in Sources */,
 				219592912B990DA2003BB89C /* UIImage+systemImageWithColor.swift in Sources */,
-				2195928F2B98F62B003BB89C /* EmailAndPasswordStackView.swift in Sources */,
 				2195928B2B98EA0A003BB89C /* UIFont+systemFontWithDesign.swift in Sources */,
 				2101AC9F2B97A2F6009C6EBF /* User.swift in Sources */,
 			);

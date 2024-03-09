@@ -21,15 +21,13 @@ final class AppCoordinator: AppCoordinating {
     @Injected private var store: AppStore
     @Injected private var coordinatorFactory: CoordinatorFactory
 
-    private let isLoggedInKey = "isLoggedIn"
-
     init(_ navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
 
     func start(animated: Bool) {
-        let isLoggedIn = false
-        if isLoggedIn {
+        let rememberUser = UserDefaults.standard.rememberUser
+        if rememberUser {
             startMainFlow(animated: animated)
         } else {
             startLoginFlow(animated: animated)
@@ -66,5 +64,29 @@ final class AppCoordinator: AppCoordinating {
         }
         navigationController.viewControllers.removeAll()
         startLoginFlow(animated: true)
+    }
+}
+
+extension UserDefaults {
+    private static let rememberUserKey = "rememberUser"
+
+    var rememberUser: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: UserDefaults.rememberUserKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaults.rememberUserKey)
+        }
+    }
+
+    private static let rememberedUserEmailKey = "rememberedUserEmail"
+
+    var rememberedUserEmail: String? {
+        get {
+            UserDefaults.standard.string(forKey: UserDefaults.rememberedUserEmailKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaults.rememberUserKey)
+        }
     }
 }

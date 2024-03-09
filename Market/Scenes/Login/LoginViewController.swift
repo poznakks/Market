@@ -10,11 +10,13 @@ import Combine
 
 final class LoginViewController: UIViewController {
 
+    // MARK: Properties
     weak var coordinator: LoginCoordinating?
 
     @Injected private var store: AppStore
     private var cancellables: Set<AnyCancellable> = []
 
+    // MARK: UI Elements
     private lazy var titleLabel: TitleLabel = {
         let fullText = Constants.Strings.titleLabelText.components(separatedBy: " ")
         let label = TitleLabel(firstWord: fullText[0], secondWord: fullText[1])
@@ -22,13 +24,31 @@ final class LoginViewController: UIViewController {
         return label
     }()
 
-    private lazy var emailAndPasswordStackView: EmailAndPasswordStackView = {
-        let stackView = EmailAndPasswordStackView(
-            cornerRadius: Constants.Interface.textFieldAndSignInButtonCornerRadius,
-            height: Constants.Constraints.textFieldAndSignInButtonHeight
+    private lazy var emailTextField: CredentialsTextField = {
+        let textField = CredentialsTextField(
+            type: .email,
+            cornerRadius: Constants.Interface.textFieldAndSignInButtonCornerRadius
         )
-        view.addSubview(stackView)
-        return stackView
+        return textField
+    }()
+
+    private lazy var passwordTextField: CredentialsTextField = {
+        let textField = CredentialsTextField(
+            type: .password,
+            cornerRadius: Constants.Interface.textFieldAndSignInButtonCornerRadius
+        )
+        return textField
+    }()
+
+    private lazy var checkbox: CheckboxWithTitle = {
+        let checkbox = CheckboxWithTitle()
+        return checkbox
+    }()
+
+    private lazy var forgotPasswordButton: ForgotPasswordButton = {
+        let button = ForgotPasswordButton()
+        button.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        return button
     }()
 
     private lazy var signInButton: SignInButton = {
@@ -47,6 +67,7 @@ final class LoginViewController: UIViewController {
         return label
     }()
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -54,6 +75,7 @@ final class LoginViewController: UIViewController {
         subscribeOnStore()
     }
 
+    // MARK: Private methods
     private func subscribeOnStore() {
         store
             .receive(on: DispatchQueue.main)
@@ -62,7 +84,7 @@ final class LoginViewController: UIViewController {
     }
 
     private func updateState(with state: UserState) {
-        if let user = state.user {
+        if state.user != nil {
             coordinator?.logIn()
             return
         }
@@ -90,6 +112,8 @@ final class LoginViewController: UIViewController {
         }
     }
 
+    // MARK: Constraints
+    // swiftlint:disable:next function_body_length
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(
@@ -103,6 +127,25 @@ final class LoginViewController: UIViewController {
             titleLabel.trailingAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.trailingAnchor,
                 constant: -Constants.Constraints.leadingTrailingInset
+            )
+        ])
+
+        let emailAndPasswordStackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [emailTextField, passwordTextField])
+            stackView.axis = .vertical
+            stackView.spacing = Constants.Constraints.textFieldsSpacing
+            stackView.distribution = .fill
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(stackView)
+            return stackView
+        }()
+
+        NSLayoutConstraint.activate([
+            emailTextField.heightAnchor.constraint(
+                equalToConstant: Constants.Constraints.textFieldAndSignInButtonHeight
+            ),
+            passwordTextField.heightAnchor.constraint(
+                equalToConstant: Constants.Constraints.textFieldAndSignInButtonHeight
             )
         ])
 
@@ -121,10 +164,37 @@ final class LoginViewController: UIViewController {
             )
         ])
 
+        let checkboxAndForgotPasswordStackView: UIStackView = {
+            let stackView = UIStackView(arrangedSubviews: [checkbox, forgotPasswordButton])
+            stackView.axis = .horizontal
+            stackView.distribution = .fill
+            stackView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(stackView)
+            return stackView
+        }()
+
+        NSLayoutConstraint.activate([
+            checkboxAndForgotPasswordStackView.topAnchor.constraint(
+                equalTo: emailAndPasswordStackView.bottomAnchor,
+                constant: Constants.Constraints.checkboxToTextFieldsOffset
+            ),
+            checkboxAndForgotPasswordStackView.leadingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.leadingAnchor,
+                constant: Constants.Constraints.checkboxLeadingTrailingInset
+            ),
+            checkboxAndForgotPasswordStackView.trailingAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.trailingAnchor,
+                constant: -Constants.Constraints.checkboxLeadingTrailingInset
+            ),
+            checkboxAndForgotPasswordStackView.heightAnchor.constraint(
+                equalToConstant: Constants.Constraints.checkboxHeight
+            )
+        ])
+
         NSLayoutConstraint.activate([
             signInButton.topAnchor.constraint(
-                equalTo: emailAndPasswordStackView.bottomAnchor,
-                constant: Constants.Constraints.signInButtonToTextFieldsOffset
+                equalTo: checkbox.bottomAnchor,
+                constant: Constants.Constraints.signInButtonToCheckboxOffset
             ),
             signInButton.leadingAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.leadingAnchor,
@@ -140,14 +210,24 @@ final class LoginViewController: UIViewController {
         ])
     }
 
+    // MARK: Actions
     @objc
     private func didTapLoginButton() {
-        let email = emailAndPasswordStackView.emailText
-        let password = emailAndPasswordStackView.passwordText
-        store.dispatch(.user(.auth(.login(email: email, password: password))))
+        let email = emailTextField.text ?? ""
+        let password = passwordTextField.text ?? ""
+        let rememberUser = checkbox.isChecked
+        store.dispatch(
+            .user(.auth(.login(email: email, password: password, rememberUser: rememberUser)))
+        )
+    }
+
+    @objc
+    private func didTapForgotPassword() {
+        print(#function)
     }
 }
 
+// MARK: - Constants
 private enum Constants {
     enum Interface {
         static let textFieldAndSignInButtonCornerRadius: CGFloat = 20
@@ -157,7 +237,11 @@ private enum Constants {
         static let leadingTrailingInset: CGFloat = 20
         static let titleToTopOffset: CGFloat = 30
         static let textFieldsToTitleOffset: CGFloat = 100
-        static let signInButtonToTextFieldsOffset: CGFloat = 30
+        static let textFieldsSpacing: CGFloat = 15
+        static let checkboxToTextFieldsOffset: CGFloat = 20
+        static let checkboxLeadingTrailingInset: CGFloat = leadingTrailingInset + 10
+        static let checkboxHeight: CGFloat = 10
+        static let signInButtonToCheckboxOffset: CGFloat = 20
         static let textFieldAndSignInButtonHeight: CGFloat = 50
     }
 

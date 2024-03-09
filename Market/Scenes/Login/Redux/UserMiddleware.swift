@@ -11,7 +11,7 @@ import Combine
 func userMiddleware(service: UserService) -> Middleware<AppState, AppAction> {
     { _, action in
         switch action {
-        case .user(.auth(let .login(email, password))):
+        case .user(.auth(let .login(email, password, _))):
             return service.login(email: email, password: password)
                 .subscribe(on: DispatchQueue.main)
                 .map { AppAction.user(.auth(.loginSuccess(user: $0))) }
