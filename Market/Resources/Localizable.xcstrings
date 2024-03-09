@@ -22,10 +22,24 @@
       }
     },
     "Forgot password?" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Забыли пароль?"
+          }
+        }
+      }
     },
     "Remember Me" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запомнить меня"
+          }
+        }
+      }
     },
     "Sign In" : {
       "localizations" : {

@@ -26,26 +26,14 @@ final class AppCoordinator: AppCoordinating {
     }
 
     func start(animated: Bool) {
-        let rememberUser = UserDefaults.standard.rememberUser
-        if rememberUser {
+        let shouldRememberUser = UserDefaults.standard.shouldRememberUser
+        let savedUser = UserDefaults.standard.savedUser
+        if let savedUser, shouldRememberUser {
+            store.dispatch(.user(.auth(.loginSuccess(user: savedUser))))
             startMainFlow(animated: animated)
         } else {
             startLoginFlow(animated: animated)
         }
-    }
-
-    private func startLoginFlow(animated: Bool) {
-        let child = coordinatorFactory.loginCoordinator(navigationController)
-        child.parentCoordinator = self
-        childCoordinators.append(child)
-        child.start(animated: animated)
-    }
-
-    private func startMainFlow(animated: Bool) {
-        let child = coordinatorFactory.mainTabBarCoordinator(navigationController)
-        child.parentCoordinator = self
-        childCoordinators.append(child)
-        child.start(animated: animated)
     }
 
     func loginDidFinish() {
@@ -65,28 +53,49 @@ final class AppCoordinator: AppCoordinating {
         navigationController.viewControllers.removeAll()
         startLoginFlow(animated: true)
     }
+
+    private func startLoginFlow(animated: Bool) {
+        let child = coordinatorFactory.loginCoordinator(navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start(animated: animated)
+    }
+
+    private func startMainFlow(animated: Bool) {
+        let child = coordinatorFactory.mainTabBarCoordinator(navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start(animated: animated)
+    }
 }
 
 extension UserDefaults {
-    private static let rememberUserKey = "rememberUser"
+    private static let shouldRememberUserKey = "shouldRememberUser"
 
-    var rememberUser: Bool {
+    var shouldRememberUser: Bool {
         get {
-            UserDefaults.standard.bool(forKey: UserDefaults.rememberUserKey)
+            UserDefaults.standard.bool(forKey: UserDefaults.shouldRememberUserKey)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.rememberUserKey)
+            UserDefaults.standard.set(newValue, forKey: UserDefaults.shouldRememberUserKey)
         }
     }
 
-    private static let rememberedUserEmailKey = "rememberedUserEmail"
+    private static let savedUserKey = "savedUserKey"
 
-    var rememberedUserEmail: String? {
+    var savedUser: User? {
         get {
-            UserDefaults.standard.string(forKey: UserDefaults.rememberedUserEmailKey)
+            if let storedData = UserDefaults.standard.data(forKey: UserDefaults.savedUserKey),
+               let decodedUser = try? JSONDecoder().decode(User.self, from: storedData) {
+                return decodedUser
+            } else {
+                return nil
+            }
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaults.rememberUserKey)
+            if let encodedUser = try? JSONEncoder().encode(newValue) {
+                UserDefaults.standard.set(encodedUser, forKey: UserDefaults.savedUserKey)
+            }
         }
     }
 }

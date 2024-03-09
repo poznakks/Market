@@ -215,9 +215,9 @@ final class LoginViewController: UIViewController {
     private func didTapLoginButton() {
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
-        let rememberUser = checkbox.isChecked
+        let shouldRememberUser = checkbox.isChecked
         store.dispatch(
-            .user(.auth(.login(email: email, password: password, rememberUser: rememberUser)))
+            .user(.auth(.login(email: email, password: password, shouldRememberUser: shouldRememberUser)))
         )
     }
 

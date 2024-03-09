@@ -14,7 +14,7 @@ enum UserAction {
 }
 
 enum UserAuthAction {
-    case login(email: String, password: String, rememberUser: Bool)
+    case login(email: String, password: String, shouldRememberUser: Bool)
     case loginSuccess(user: User)
     case loginError(error: UserLoginError?)
     case logOut
