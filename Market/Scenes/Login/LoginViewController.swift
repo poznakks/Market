@@ -238,10 +238,10 @@ private enum Constants {
         static let titleToTopOffset: CGFloat = 30
         static let textFieldsToTitleOffset: CGFloat = 100
         static let textFieldsSpacing: CGFloat = 15
-        static let checkboxToTextFieldsOffset: CGFloat = 20
+        static let checkboxToTextFieldsOffset: CGFloat = 30
         static let checkboxLeadingTrailingInset: CGFloat = leadingTrailingInset + 10
         static let checkboxHeight: CGFloat = 10
-        static let signInButtonToCheckboxOffset: CGFloat = 20
+        static let signInButtonToCheckboxOffset: CGFloat = 30
         static let textFieldAndSignInButtonHeight: CGFloat = 50
     }
 

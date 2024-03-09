@@ -113,7 +113,7 @@ final class CredentialsTextField: UITextField {
             rightViewMode = .always
         }
     }
-    
+
     // MARK: Actions
     @objc
     private func didTapTogglePasswordVisibility() {
